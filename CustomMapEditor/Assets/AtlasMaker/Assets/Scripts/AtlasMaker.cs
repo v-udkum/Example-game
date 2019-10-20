@@ -73,11 +73,16 @@ public class AtlasMaker : Editor
     }
 
     #region NEW ATLAS
-    [MenuItem(newAtlasString, false, 0)]
-   public static void NewAtlas()
+   // [MenuItem(newAtlasString, false, 0)]
+    public static void NewAtlas()
     {
         //Open folder panel to get main folder path
-        string folderPath = EditorUtility.OpenFolderPanel("Select Textures Folder", GetLastPath, "Assets/Textures");
+         string folderPath = EditorUtility.OpenFolderPanel("Select Textures Folder", GetLastPath, "");
+        //  string[] files=Directory.GetFiles("Assets/Textures");
+      
+
+
+
 
         if (!string.IsNullOrEmpty(folderPath))
         {
@@ -88,7 +93,7 @@ public class AtlasMaker : Editor
     #endregion
 
     #region LAST ATLAS
-    [MenuItem(lastAtlasString, false, 0)]
+   // [MenuItem(lastAtlasString, false, 0)]
     static void LastAtlas()
     {
         if (EditorPrefs.HasKey("AtlasMaker: Last Folder Path"))
@@ -108,14 +113,14 @@ public class AtlasMaker : Editor
     #endregion
 
     #region EXPORT PNG
-    [MenuItem(exportPngString, false, 11)]
+   // [MenuItem(exportPngString, false, 11)]
     private static void ToggleExportPNG()
     {
         exportPNG = !exportPNG;
         EditorPrefs.SetBool(exportPngString, exportPNG);
     }
 
-    [MenuItem(exportPngString, true, 11)]
+   // [MenuItem(exportPngString, true, 11)]
     private static bool ToggleExportPNGValidate()
     {
         Menu.SetChecked(exportPngString, exportPNG);
@@ -124,14 +129,14 @@ public class AtlasMaker : Editor
     #endregion
 
     #region ATLAS NORMAL MAP
-    [MenuItem(atlasNormalString, false, 11)]
+   // [MenuItem(atlasNormalString, false, 11)]
     private static void ToggleAtlasNormal()
     {
         createNormalMap = !createNormalMap;
         EditorPrefs.SetBool(atlasNormalString, createNormalMap);
     }
 
-    [MenuItem(atlasNormalString, true, 11)]
+   // [MenuItem(atlasNormalString, true, 11)]
     private static bool ToggleAtlasNormalValidate()
     {
         Menu.SetChecked(atlasNormalString, createNormalMap);
@@ -140,14 +145,14 @@ public class AtlasMaker : Editor
     #endregion
 
     #region OPEN IMAGE
-    [MenuItem(openImageString, false, 11)]
+  //  [MenuItem(openImageString, false, 11)]
     private static void ToggleOpeImageEditor()
     {
         openImage = !openImage;
         EditorPrefs.SetBool(openImageString, openImage);
     }
 
-    [MenuItem(openImageString, true, 11)]
+    //[MenuItem(openImageString, true, 11)]
     private static bool ToggleOpeImageValidate()
     {
         Menu.SetChecked(openImageString, openImage);

@@ -28,11 +28,11 @@ public class TexturePacker : EditorWindow
 
         if (buttonPressed)
         {
-            // Get a list of previews, one for each of our prefabs
+            // Get a list of previews, one for each of our images
             List<GUIContent> paletteIcons = new List<GUIContent>();
             foreach (Texture2D image in palette)
             {
-                // Get a preview for the prefab
+                // Get a preview for the images
                 Texture2D texture = AssetPreview.GetAssetPreview(image);
                 paletteIcons.Add(new GUIContent(texture));
             }
@@ -40,7 +40,7 @@ public class TexturePacker : EditorWindow
             // Display the grid
             paletteIndex = GUILayout.SelectionGrid(paletteIndex, paletteIcons.ToArray(), 6);
 
-            buttonAtlas = GUILayout.Toggle(buttonAtlas, "Create Atlas" ,GUILayout.Height(60f));
+            buttonAtlas = GUILayout.Button("Atlas Prepare", GUILayout.Height(30f));
             if (buttonAtlas)
             {
                 AtlasMaker.NewAtlas();
